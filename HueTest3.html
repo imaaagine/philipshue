@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Philips Hue Test</title>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/ui-darkness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+
+<body>
+On and off:
+<br>
+<button class="button1" id="TurnOn" type="button">Turn on!</button>
+<button class="button1" id="TurnOff" type="button">Turn off!</button>
+<br><br>
+Color:
+<br>
+<button class="button green" id="ColorGreen" type="button">Green</button>
+<button class="button blue" id="ColorBlue" type="button">Blue</button>
+<button class="button yellow" id="ColorYellow" type="button">Yellow</button>
+<button class="button red" id="ColorRed" type="button">Red</button>
+<button class="button white" id="ColorWhite" type="button">White</button>
+
+
+<script>
+const urls = "http://10.181.158.100/api/cLWLdcxZ3TbvLv6AepZ7G-3g5DfOB8lAZqAKGnRM/groups/1/action";
+const Url1="http://10.181.158.100/api/cLWLdcxZ3TbvLv6AepZ7G-3g5DfOB8lAZqAKGnRM/lights/1/state";
+const Url2="http://10.181.158.100/api/cLWLdcxZ3TbvLv6AepZ7G-3g5DfOB8lAZqAKGnRM/lights/2/state";
+const Url3="http://10.181.158.100/api/cLWLdcxZ3TbvLv6AepZ7G-3g5DfOB8lAZqAKGnRM/lights/3/state";
+
+$('#TurnOn').click(  function () {
+  const data={'on':true}
+      $.ajax({
+        url:urls,
+        type:'PUT',
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: function(result){
+          console.log(result)
+        },
+        error: function(error){
+          console.log('Error ${error}')
+        }
+      })
+  });
+
+$('#TurnOff').click(  function () {
+  const data={'on':false}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+
+$('#ColorGreen').click(  function () {
+  const data={'hue': 28672, 'sat': 254}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+
+$('#ColorBlue').click(  function () {
+  const data={'hue': 45055, 'sat': 254}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+
+$('#ColorYellow').click(  function () {
+  const data={'hue': 12288, 'sat': 254}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+
+$('#ColorRed').click(  function () {
+  const data={'hue': 0, 'sat': 254}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+
+$('#ColorWhite').click(  function () {
+  const data={'hue': 0, 'sat': 0}
+    $.ajax({
+      url:urls,
+      type:'PUT',
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function(result){
+        console.log(result)
+      },
+      error: function(error){
+        console.log('Error ${error}')
+      }
+    })
+});
+</script>
+</body>
+</html>
